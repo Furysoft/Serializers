@@ -53,7 +53,7 @@ Task("Run-Unit-Tests")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    DotNetCoreTest(TestProject",
+    DotNetCoreTest(TestProject,
                 new DotNetCoreTestSettings()
                 {
                     Configuration = configuration,
