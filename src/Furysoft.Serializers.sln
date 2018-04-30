@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A2E3338-BE8B-47F8-AF07-45FFC361D935}"
+	ProjectSection(SolutionItems) = preProject
+		stylecop.json = stylecop.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Component", "Component", "{59CB03F3-5611-448F-9D50-2423676A7A06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CB15B5AD-EF52-4D54-8F92-03DC0E3EE86D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furysoft.Serializers", "Component\Furysoft.Serializers\Furysoft.Serializers.csproj", "{3FD3F57C-A5CF-402D-B3B0-5ACC95A060BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furysoft.Serializers.Tests", "Tests\Furysoft.Serializers.Tests\Furysoft.Serializers.Tests.csproj", "{C265550C-01D4-4936-8BCD-809F1EC502B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FD3F57C-A5CF-402D-B3B0-5ACC95A060BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FD3F57C-A5CF-402D-B3B0-5ACC95A060BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FD3F57C-A5CF-402D-B3B0-5ACC95A060BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FD3F57C-A5CF-402D-B3B0-5ACC95A060BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C265550C-01D4-4936-8BCD-809F1EC502B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C265550C-01D4-4936-8BCD-809F1EC502B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C265550C-01D4-4936-8BCD-809F1EC502B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C265550C-01D4-4936-8BCD-809F1EC502B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3FD3F57C-A5CF-402D-B3B0-5ACC95A060BF} = {59CB03F3-5611-448F-9D50-2423676A7A06}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0876DC42-8E5E-40E9-8485-D976A22DEF45}
+	EndGlobalSection
+EndGlobal
