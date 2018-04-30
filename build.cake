@@ -16,7 +16,7 @@ const string ProjectName = "Furysoft.Serializers";
 
 var buildDir = Directory("./src/Component/" + ProjectName + "/bin") + Directory(configuration);
 
-var sln = "./src" + ProjectName + ".sln";
+var sln = "./src/" + ProjectName + ".sln";
 const string Project = "./src/Component/" + ProjectName + "/" + ProjectName + ".csproj";
 const string TestProject = "./src/Tests/" + ProjectName + ".Tests/" + ProjectName + ".Tests.csproj";
 
