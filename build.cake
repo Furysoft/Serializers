@@ -66,7 +66,7 @@ Task("Package")
     .IsDependentOn("Run-Unit-Tests")
     .Does(() =>
 {
-    DotNetCorePack("Project", new DotNetCorePackSettings
+    DotNetCorePack(Project, new DotNetCorePackSettings
      {
          Configuration = configuration,
          NoRestore = true,
