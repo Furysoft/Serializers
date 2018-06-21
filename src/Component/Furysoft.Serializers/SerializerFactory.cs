@@ -36,7 +36,7 @@ namespace Furysoft.Serializers
                     return new JsonSerializer(base64Encode);
 
                 case SerializerType.ProtocolBuffers:
-                    return new JsonSerializer(base64Encode);
+                    return new ProtocolBufferSerializer(base64Encode);
 
                 case SerializerType.None:
                 default:
