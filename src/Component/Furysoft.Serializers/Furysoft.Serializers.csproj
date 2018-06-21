@@ -13,6 +13,7 @@
     <Authors>Simon Paramore</Authors>
     <Company>Furysoft</Company>
     <Description>Serializer helper methods for XML, JSON, and Protobuf</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
