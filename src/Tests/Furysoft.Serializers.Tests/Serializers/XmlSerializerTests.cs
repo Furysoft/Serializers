@@ -8,14 +8,14 @@ namespace Furysoft.Serializers.Tests.Serializers
 {
     using System;
     using System.Diagnostics;
-    using Helpers;
-    using Logic;
+    using Furysoft.Serializers.Logic;
+    using Furysoft.Serializers.Tests.Helpers;
+    using Furysoft.Serializers.Tests.TestEntities;
     using Newtonsoft.Json;
     using NUnit.Framework;
-    using TestEntities;
 
     /// <summary>
-    /// The XML Serializer Tests
+    /// The XML Serializer Tests.
     /// </summary>
     /// <seealso cref="TestBase" />
     [TestFixture]

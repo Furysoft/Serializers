@@ -8,10 +8,10 @@ namespace Furysoft.Serializers
 {
     using System;
     using System.IO;
-    using Entities;
+    using Furysoft.Serializers.Entities;
 
     /// <summary>
-    /// The Serializer Helpers
+    /// The Serializer Helpers.
     /// </summary>
     public static class SerializerHelpers
     {
@@ -22,7 +22,7 @@ namespace Furysoft.Serializers
         /// <param name="serializedData">The serialized data.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The TEntity
+        /// The TEntity.
         /// </returns>
         public static TEntity Deserialize<TEntity>(
             this Stream serializedData,
@@ -40,7 +40,7 @@ namespace Furysoft.Serializers
         /// <param name="serializedData">The serialized data.</param>
         /// <param name="type">The type.</param>
         /// <param name="serializerType">Type of the serializer.</param>
-        /// <returns>The Deserialized Object</returns>
+        /// <returns>The Deserialized Object.</returns>
         public static object Deserialize(
             this Stream serializedData,
             Type type,
@@ -58,7 +58,7 @@ namespace Furysoft.Serializers
         /// <param name="serializedData">The serialized data.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The TEntity
+        /// The TEntity.
         /// </returns>
         public static TEntity Deserialize<TEntity>(
             this string serializedData,
@@ -76,7 +76,7 @@ namespace Furysoft.Serializers
         /// <param name="serializedData">The serialized data.</param>
         /// <param name="type">The type.</param>
         /// <param name="serializerType">Type of the serializer.</param>
-        /// <returns>The Deserialized Object</returns>
+        /// <returns>The Deserialized Object.</returns>
         public static object Deserialize(
             this string serializedData,
             Type type,
@@ -94,7 +94,7 @@ namespace Furysoft.Serializers
         /// <param name="serializedData">The serialized data.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The TEntity
+        /// The TEntity.
         /// </returns>
         public static TEntity Deserialize<TEntity>(
             this byte[] serializedData,
@@ -112,7 +112,7 @@ namespace Furysoft.Serializers
         /// <param name="serializedData">The serialized data.</param>
         /// <param name="type">The type.</param>
         /// <param name="serializerType">Type of the serializer.</param>
-        /// <returns>The Deserialized Object</returns>
+        /// <returns>The Deserialized Object.</returns>
         public static object Deserialize(
             this byte[] serializedData,
             Type type,
@@ -130,7 +130,7 @@ namespace Furysoft.Serializers
         /// <param name="data">The data.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The <see cref="byte" />
+        /// The <see cref="byte" />.
         /// </returns>
         public static byte[] SerializeToByteArray<TEntity>(
             this TEntity data,
@@ -149,7 +149,7 @@ namespace Furysoft.Serializers
         /// <param name="type">The type.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The <see cref="byte" />
+        /// The <see cref="byte" />.
         /// </returns>
         public static byte[] SerializeToByteArray(
             this object data,
@@ -168,7 +168,7 @@ namespace Furysoft.Serializers
         /// <param name="data">The data.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The <see cref="Stream" />
+        /// The <see cref="Stream" />.
         /// </returns>
         public static Stream SerializeToStream<TEntity>(
             this TEntity data,
@@ -186,7 +186,7 @@ namespace Furysoft.Serializers
         /// <param name="data">The data.</param>
         /// <param name="type">The type.</param>
         /// <param name="serializerType">Type of the serializer.</param>
-        /// <returns>The <see cref="Stream"/></returns>
+        /// <returns>The <see cref="Stream"/>.</returns>
         public static Stream SerializeToStream(
             this object data,
             Type type,
@@ -204,7 +204,7 @@ namespace Furysoft.Serializers
         /// <param name="data">The data.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The serialized string
+        /// The serialized string.
         /// </returns>
         public static string SerializeToString<TEntity>(
             this TEntity data,
@@ -223,7 +223,7 @@ namespace Furysoft.Serializers
         /// <param name="type">The type.</param>
         /// <param name="serializerType">Type of the serializer.</param>
         /// <returns>
-        /// The serialized string
+        /// The serialized string.
         /// </returns>
         public static string SerializeToString(
             this object data,

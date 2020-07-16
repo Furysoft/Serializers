@@ -7,17 +7,15 @@
 namespace Furysoft.Serializers.Tests.Serializers
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
-    using Helpers;
-    using Logic;
+    using Furysoft.Serializers.Logic;
+    using Furysoft.Serializers.Tests.Helpers;
+    using Furysoft.Serializers.Tests.TestEntities;
     using Newtonsoft.Json;
     using NUnit.Framework;
-    using ProtoBuf;
-    using TestEntities;
 
     /// <summary>
-    /// The Protocol Buffer Serializer Tests
+    /// The Protocol Buffer Serializer Tests.
     /// </summary>
     [TestFixture]
     public sealed class ProtocolBufferSerializerTests : TestBase
@@ -29,7 +27,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToByteArray_WhenUsingByteArray_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -56,7 +54,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToByteArray_WhenUsingByteArrayWithType_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -83,7 +81,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToStream_WhenUsingStream_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -110,7 +108,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToStream_WhenUsingStreamWithType_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -137,17 +135,17 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToString_WhenDateTime_ExpectSerializeAndDeserialize()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = new TestEntity2
             {
                 Value1 = new DateTime(2018, 1, 1),
-                Value2 = 2.53m
+                Value2 = 2.53m,
             };
 
             // Act
             var stopwatch = Stopwatch.StartNew();
-            var serializeToString = protocolBufferSerializer.SerializeToString(testEntity, typeof(TestEntity));
+            var serializeToString = protocolBufferSerializer.SerializeToString(testEntity, typeof(TestEntity2));
 
             var deserializeFromByteArray = protocolBufferSerializer.DeserializeFromString<TestEntity2>(serializeToString);
 
@@ -167,7 +165,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToString_WhenUsingString_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -194,7 +192,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToString_WhenUsingStringWithType_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -213,24 +211,5 @@ namespace Furysoft.Serializers.Tests.Serializers
 
             deserializeFromByteArray.AssertEqualsDefault();
         }
-    }
-
-    /// <summary>
-    /// The Test Entity One
-    /// </summary>
-    [ProtoContract]
-    public sealed class TestEntityOne
-    {
-        /// <summary>
-        /// Gets or sets the int list.
-        /// </summary>
-        [ProtoMember(2)]
-        public List<int> IntList { get; set; }
-
-        /// <summary>
-        /// Gets or sets the string value.
-        /// </summary>
-        [ProtoMember(1)]
-        public string StringValue { get; set; }
     }
 }

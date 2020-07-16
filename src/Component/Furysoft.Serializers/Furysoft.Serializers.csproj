@@ -9,11 +9,11 @@
     <RepositoryUrl>https://github.com/Furysoft/Serializers</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Furysoft Serializers</PackageTags>
-    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageReleaseNotes>Removed non Base64 option from protobuf serializer.</PackageReleaseNotes>
     <Authors>Simon Paramore</Authors>
     <Company>Furysoft</Company>
     <Description>Serializer helper methods for XML, JSON, and Protobuf</Description>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,11 +23,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jetbrains.Annotations" Version="11.1.0" PrivateAssets="All" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="protobuf-net" Version="2.3.13" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" PrivateAssets="All" />
-    <PackageReference Include="System.Runtime" Version="4.3.0" />
+    <PackageReference Include="Jetbrains.Annotations" Version="2020.1.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="protobuf-net" Version="3.0.29" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
     <PackageReference Include="System.Runtime.Serialization.Xml" Version="4.3.0" />
   </ItemGroup>
 

@@ -12,7 +12,7 @@ namespace Furysoft.Serializers.Tests.TestEntities
     using ProtoBuf;
 
     /// <summary>
-    /// The Test Entity
+    /// The Test Entity.
     /// </summary>
     [DataContract]
     [Serializable]

@@ -8,13 +8,13 @@ namespace Furysoft.Serializers.Tests.Serializers
 {
     using System;
     using System.Diagnostics;
-    using Helpers;
+    using Furysoft.Serializers.Tests.Helpers;
+    using Furysoft.Serializers.Tests.TestEntities;
     using Newtonsoft.Json;
     using NUnit.Framework;
-    using TestEntities;
 
     /// <summary>
-    /// The JSON Serializer Tests
+    /// The JSON Serializer Tests.
     /// </summary>
     /// <seealso cref="TestBase" />
     [TestFixture]
