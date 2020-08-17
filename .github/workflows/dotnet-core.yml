@@ -17,6 +17,11 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+    - name: Setup NuGet
+      run: |
+        mv NuGet.config.disabled NuGet.config
+        sed -i s/%SECRETKEY%/${MYGET_KEY}/g NuGet.config
+        cd src
     - name: Install dependencies
       run: dotnet restore
     - name: Build
