@@ -29,4 +29,4 @@ jobs:
       working-directory: src
       run: |
         dotnet pack --no-restore --no-build
-        dotnet push -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
+        dotnet nuget push -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
