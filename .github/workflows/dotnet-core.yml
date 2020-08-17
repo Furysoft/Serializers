@@ -28,5 +28,5 @@ jobs:
     - name: Nuget Push
       working-directory: src
       run: |
-        dotnet pack --no-restore --no-build
-        dotnet nuget push -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
+        dotnet pack --no-restore -c release
+        dotnet nuget push **/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
