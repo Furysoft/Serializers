@@ -12,12 +12,12 @@ namespace Furysoft.Serializers.Logic
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The JSON Serializer
+    /// The JSON Serializer.
     /// </summary>
     public sealed class JsonSerializer : ISerializer
     {
         /// <summary>
-        /// The encode as base64
+        /// The encode as base64.
         /// </summary>
         private readonly bool encodeAsBase64;
 

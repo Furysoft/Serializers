@@ -7,7 +7,7 @@
 namespace Furysoft.Serializers.Entities
 {
     /// <summary>
-    /// The Serializer Type
+    /// The Serializer Type.
     /// </summary>
     public enum SerializerType
     {
@@ -29,6 +29,6 @@ namespace Furysoft.Serializers.Entities
         /// <summary>
         /// The protocol buffers
         /// </summary>
-        ProtocolBuffers = 3
+        ProtocolBuffers = 3,
     }
 }

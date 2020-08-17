@@ -11,13 +11,13 @@ namespace Furysoft.Serializers.Logic
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// The XML Serializer
+    /// The XML Serializer.
     /// </summary>
     /// <seealso cref="Furysoft.Serializers.ISerializer" />
     public sealed class XmlSerializer : ISerializer
     {
         /// <summary>
-        /// The encode as base64
+        /// The encode as base64.
         /// </summary>
         private readonly bool encodeAsBase64;
 
@@ -36,7 +36,7 @@ namespace Furysoft.Serializers.Logic
         /// <typeparam name="TType">The type of the type.</typeparam>
         /// <param name="data">The data.</param>
         /// <returns>
-        /// The TType
+        /// The TType.
         /// </returns>
         public TType DeserializeFromByteArray<TType>(byte[] data)
         {
@@ -189,7 +189,7 @@ namespace Furysoft.Serializers.Logic
         /// Gets as stream.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <returns>The <see cref="Stream"/></returns>
+        /// <returns>The <see cref="Stream"/>.</returns>
         private static Stream GetAsStream(string data)
         {
             var stream = new MemoryStream();
@@ -204,7 +204,7 @@ namespace Furysoft.Serializers.Logic
         /// Gets as stream.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <returns>The <see cref="Stream"/></returns>
+        /// <returns>The <see cref="Stream"/>.</returns>
         private static Stream GetAsStream(byte[] data)
         {
             var ms = new MemoryStream();

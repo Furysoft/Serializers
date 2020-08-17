@@ -10,7 +10,7 @@ namespace Furysoft.Serializers
     using System.IO;
 
     /// <summary>
-    /// The Serializer Interface
+    /// The Serializer Interface.
     /// </summary>
     public interface ISerializer
     {
@@ -19,7 +19,7 @@ namespace Furysoft.Serializers
         /// </summary>
         /// <typeparam name="TType">The type of the type.</typeparam>
         /// <param name="data">The data.</param>
-        /// <returns>The TType</returns>
+        /// <returns>The TType.</returns>
         TType DeserializeFromByteArray<TType>(byte[] data);
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Furysoft.Serializers
         /// </summary>
         /// <param name="data">The data.</param>
         /// <param name="type">The type.</param>
-        /// <returns>The Deserialized Object</returns>
+        /// <returns>The Deserialized Object.</returns>
         object DeserializeFromByteArray(byte[] data, Type type);
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Furysoft.Serializers
         /// </summary>
         /// <typeparam name="TType">The type of the type.</typeparam>
         /// <param name="data">The data.</param>
-        /// <returns>The TType</returns>
+        /// <returns>The TType.</returns>
         TType DeserializeFromStream<TType>(Stream data);
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Furysoft.Serializers
         /// </summary>
         /// <param name="data">The data.</param>
         /// <param name="type">The type.</param>
-        /// <returns>The Deserialized Object</returns>
+        /// <returns>The Deserialized Object.</returns>
         object DeserializeFromStream(Stream data, Type type);
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Furysoft.Serializers
         /// </summary>
         /// <typeparam name="TType">The type of the type.</typeparam>
         /// <param name="data">The data.</param>
-        /// <returns>The TType</returns>
+        /// <returns>The TType.</returns>
         TType DeserializeFromString<TType>(string data);
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Furysoft.Serializers
         /// </summary>
         /// <param name="data">The data.</param>
         /// <param name="type">The type.</param>
-        /// <returns>The Deserialized Object</returns>
+        /// <returns>The Deserialized Object.</returns>
         object DeserializeFromString(string data, Type type);
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Furysoft.Serializers
         /// <typeparam name="TType">The type of the type.</typeparam>
         /// <param name="content">The content.</param>
         /// <returns>
-        /// The Serialized Data
+        /// The Serialized Data.
         /// </returns>
         byte[] SerializeToByteArray<TType>(TType content);
 
@@ -78,7 +78,7 @@ namespace Furysoft.Serializers
         /// <param name="content">The content.</param>
         /// <param name="type">The type.</param>
         /// <returns>
-        /// The Serialized Data
+        /// The Serialized Data.
         /// </returns>
         byte[] SerializeToByteArray(object content, Type type);
 
@@ -87,7 +87,7 @@ namespace Furysoft.Serializers
         /// </summary>
         /// <typeparam name="TType">The type of the type.</typeparam>
         /// <param name="content">The content.</param>
-        /// <returns>The <see cref="Stream"/></returns>
+        /// <returns>The <see cref="Stream"/>.</returns>
         Stream SerializeToStream<TType>(TType content);
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace Furysoft.Serializers
         /// <param name="content">The content.</param>
         /// <param name="type">The type.</param>
         /// <returns>
-        /// The Serialized Data
+        /// The Serialized Data.
         /// </returns>
         Stream SerializeToStream(object content, Type type);
 
@@ -106,7 +106,7 @@ namespace Furysoft.Serializers
         /// <typeparam name="TType">The type of the type.</typeparam>
         /// <param name="content">The content.</param>
         /// <returns>
-        /// The Serialized Data
+        /// The Serialized Data.
         /// </returns>
         string SerializeToString<TType>(TType content);
 
@@ -116,7 +116,7 @@ namespace Furysoft.Serializers
         /// <param name="content">The content.</param>
         /// <param name="type">The type.</param>
         /// <returns>
-        /// The Serialized Data
+        /// The Serialized Data.
         /// </returns>
         string SerializeToString(object content, Type type);
     }

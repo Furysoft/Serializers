@@ -9,18 +9,18 @@ namespace Furysoft.Serializers.Tests.Helpers
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Furysoft.Serializers.Tests.TestEntities;
     using NUnit.Framework;
-    using TestEntities;
 
     /// <summary>
-    /// The Test Helper
+    /// The Test Helper.
     /// </summary>
     public static class TestHelper
     {
         /// <summary>
         /// Gets the default test entity.
         /// </summary>
-        /// <returns>The <see cref="TestEntity"/></returns>
+        /// <returns>The <see cref="TestEntity"/>.</returns>
         public static TestEntity GetDefaultTestEntity => new TestEntity
         {
             SomeDictionary = new Dictionary<string, int>
@@ -33,7 +33,7 @@ namespace Furysoft.Serializers.Tests.Helpers
             SomeEntity = new TestEntity { SomeString = "SubString", SomeInt = 2 },
             SomeInt = 1,
             SomeString = "String",
-            SomeDateTime = new DateTime(2018, 1, 1, 5, 23, 59)
+            SomeDateTime = new DateTime(2018, 1, 1, 5, 23, 59),
         };
 
         /// <summary>

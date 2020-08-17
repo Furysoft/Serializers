@@ -7,11 +7,11 @@
 namespace Furysoft.Serializers
 {
     using System;
-    using Entities;
-    using Logic;
+    using Furysoft.Serializers.Entities;
+    using Furysoft.Serializers.Logic;
 
     /// <summary>
-    /// The Serializer Factory
+    /// The Serializer Factory.
     /// </summary>
     public static class SerializerFactory
     {
@@ -21,10 +21,10 @@ namespace Furysoft.Serializers
         /// <param name="type">The type.</param>
         /// <param name="base64Encode">if set to <c>true</c> [base64 encode].</param>
         /// <returns>
-        /// The <see cref="ISerializer" />
+        /// The <see cref="ISerializer" />.
         /// </returns>
-        /// <exception cref="System.ArgumentOutOfRangeException">type - null</exception>
-        /// <exception cref="ArgumentOutOfRangeException">type is invalid</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">type - null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">type is invalid.</exception>
         public static ISerializer Create(SerializerType type, bool base64Encode = false)
         {
             switch (type)
@@ -36,7 +36,7 @@ namespace Furysoft.Serializers
                     return new JsonSerializer(base64Encode);
 
                 case SerializerType.ProtocolBuffers:
-                    return new ProtocolBufferSerializer(base64Encode);
+                    return new ProtocolBufferSerializer();
 
                 case SerializerType.None:
                 default:

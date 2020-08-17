@@ -8,13 +8,13 @@ namespace Furysoft.Serializers.Tests.Serializers
 {
     using System;
     using System.Diagnostics;
-    using Helpers;
-    using Logic;
+    using Furysoft.Serializers.Logic;
+    using Furysoft.Serializers.Tests.Helpers;
+    using Furysoft.Serializers.Tests.TestEntities;
     using NUnit.Framework;
-    using TestEntities;
 
     /// <summary>
-    /// The Base 64 Serializer Tests
+    /// The Base 64 Serializer Tests.
     /// </summary>
     /// <seealso cref="TestBase" />
     [TestFixture]
@@ -27,7 +27,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void ToBase64String_WhenUsingByteArray_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -57,7 +57,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void ToBase64String_WhenUsingStream_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -87,7 +87,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void ToBase64String_WhenUsingString_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 

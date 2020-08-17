@@ -10,14 +10,14 @@ namespace Furysoft.Serializers.Tests.Serializers
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
-    using Helpers;
-    using Logic;
+    using Furysoft.Serializers.Logic;
+    using Furysoft.Serializers.Tests.Helpers;
+    using Furysoft.Serializers.Tests.TestEntities;
     using NUnit.Framework;
-    using TestEntities;
-    using XmlSerializer = Logic.XmlSerializer;
+    using XmlSerializer = Furysoft.Serializers.Logic.XmlSerializer;
 
     /// <summary>
-    /// The Performance Tests
+    /// The Performance Tests.
     /// </summary>
     [TestFixture]
 #if !DEBUG
@@ -387,7 +387,7 @@ namespace Furysoft.Serializers.Tests.Serializers
 
             Console.WriteLine("Protocol Buffers Tests\r\n******");
 
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             /* Serialize Tests */
             Console.WriteLine("SerializeToStream");
@@ -473,7 +473,7 @@ namespace Furysoft.Serializers.Tests.Serializers
 
             Console.WriteLine("Protocol Buffers Tests\r\n******");
 
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             /* Serialize Tests */
             Console.WriteLine("SerializeToStream");
@@ -560,7 +560,7 @@ namespace Furysoft.Serializers.Tests.Serializers
 
             Console.WriteLine("Protocol Buffers Tests\r\n******");
 
-            var protocolBufferSerializer = new ProtocolBufferSerializer(false);
+            var protocolBufferSerializer = new ProtocolBufferSerializer();
 
             /* Serialize Tests */
             Console.WriteLine("SerializeToStream");
