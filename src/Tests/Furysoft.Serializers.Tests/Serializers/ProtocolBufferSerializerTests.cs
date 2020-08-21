@@ -27,7 +27,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToByteArray_WhenUsingByteArray_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -54,7 +54,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToByteArray_WhenUsingByteArrayWithType_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -81,7 +81,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToStream_WhenUsingStream_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -108,7 +108,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToStream_WhenUsingStreamWithType_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -135,7 +135,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToString_WhenDateTime_ExpectSerializeAndDeserialize()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             var testEntity = new TestEntity2
             {
@@ -165,7 +165,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToString_WhenUsingString_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 
@@ -192,7 +192,7 @@ namespace Furysoft.Serializers.Tests.Serializers
         public void SerializeToString_WhenUsingStringWithType_ExpectDeserializeCorrect()
         {
             // Arrange
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             var testEntity = TestHelper.GetDefaultTestEntity;
 

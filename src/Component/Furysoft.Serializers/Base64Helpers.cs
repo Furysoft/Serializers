@@ -47,8 +47,7 @@ namespace Furysoft.Serializers
         public static string DecodeBase64ToString([NotNull] this string source)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(source);
-            var s
-                = System.Text.Encoding.UTF8.GetString(base64EncodedBytes, 0, base64EncodedBytes.Length);
+            var s = System.Text.Encoding.UTF8.GetString(base64EncodedBytes, 0, base64EncodedBytes.Length);
             return s;
         }
 

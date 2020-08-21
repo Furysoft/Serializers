@@ -387,7 +387,7 @@ namespace Furysoft.Serializers.Tests.Serializers
 
             Console.WriteLine("Protocol Buffers Tests\r\n******");
 
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             /* Serialize Tests */
             Console.WriteLine("SerializeToStream");
@@ -473,7 +473,7 @@ namespace Furysoft.Serializers.Tests.Serializers
 
             Console.WriteLine("Protocol Buffers Tests\r\n******");
 
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             /* Serialize Tests */
             Console.WriteLine("SerializeToStream");
@@ -560,7 +560,7 @@ namespace Furysoft.Serializers.Tests.Serializers
 
             Console.WriteLine("Protocol Buffers Tests\r\n******");
 
-            var protocolBufferSerializer = new ProtocolBufferSerializer();
+            var protocolBufferSerializer = new ProtocolBufferSerializer(true);
 
             /* Serialize Tests */
             Console.WriteLine("SerializeToStream");

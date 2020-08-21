@@ -25,7 +25,7 @@ namespace Furysoft.Serializers
         /// </returns>
         /// <exception cref="System.ArgumentOutOfRangeException">type - null.</exception>
         /// <exception cref="ArgumentOutOfRangeException">type is invalid.</exception>
-        public static ISerializer Create(SerializerType type, bool base64Encode = false)
+        public static ISerializer Create(SerializerType type, bool base64Encode = true)
         {
             switch (type)
             {
@@ -36,7 +36,7 @@ namespace Furysoft.Serializers
                     return new JsonSerializer(base64Encode);
 
                 case SerializerType.ProtocolBuffers:
-                    return new ProtocolBufferSerializer();
+                    return new ProtocolBufferSerializer(base64Encode);
 
                 case SerializerType.None:
                 default:

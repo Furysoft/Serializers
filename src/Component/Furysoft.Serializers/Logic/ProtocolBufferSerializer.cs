@@ -8,6 +8,7 @@ namespace Furysoft.Serializers.Logic
 {
     using System;
     using System.IO;
+    using System.Text;
     using ProtoBuf;
 
     /// <summary>
@@ -16,6 +17,20 @@ namespace Furysoft.Serializers.Logic
     /// <seealso cref="ISerializer" />
     public sealed class ProtocolBufferSerializer : ISerializer
     {
+        /// <summary>
+        /// The encode as base64.
+        /// </summary>
+        private readonly bool encodeAsBase64;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProtocolBufferSerializer"/> class.
+        /// </summary>
+        /// <param name="encodeAsBase64">if set to <c>true</c> [encode as base64].</param>
+        internal ProtocolBufferSerializer(bool encodeAsBase64)
+        {
+            this.encodeAsBase64 = encodeAsBase64;
+        }
+
         /// <inheritdoc />
         public TType DeserializeFromByteArray<TType>(byte[] data)
         {
@@ -56,26 +71,30 @@ namespace Furysoft.Serializers.Logic
         /// <inheritdoc />
         public TType DeserializeFromString<TType>(string data)
         {
-            var decoded = Convert.FromBase64String(data);
+            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToString() : data;
 
-            using (var ms = new MemoryStream(decoded))
+            using (var ms = new MemoryStream())
+            using (var sw = new StreamWriter(ms, Encoding.GetEncoding("iso-8859-1")))
             {
-                var deserialize = Serializer.Deserialize<TType>(ms);
-
-                return deserialize;
+                sw.Write(serializedData);
+                sw.Flush();
+                ms.Position = 0;
+                return Serializer.Deserialize<TType>(ms);
             }
         }
 
         /// <inheritdoc />
         public object DeserializeFromString(string data, Type type)
         {
-            var decoded = Convert.FromBase64String(data);
+            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToString() : data;
 
-            using (var ms = new MemoryStream(decoded))
+            using (var ms = new MemoryStream())
+            using (var sw = new StreamWriter(ms, Encoding.GetEncoding("iso-8859-1")))
             {
-                var deserialize = Serializer.Deserialize(type, ms);
-
-                return deserialize;
+                sw.Write(serializedData);
+                sw.Flush();
+                ms.Position = 0;
+                return Serializer.Deserialize(type, ms);
             }
         }
 
@@ -135,12 +154,16 @@ namespace Furysoft.Serializers.Logic
             using (var ms = new MemoryStream())
             {
                 Serializer.Serialize(ms, content);
+                ms.Flush();
                 ms.Position = 0;
 
                 var array = ms.ToArray();
-                string rtn;
+                var rtn = Encoding.GetEncoding("iso-8859-1").GetString(array);
 
-                rtn = Convert.ToBase64String(array, 0, array.Length);
+                if (this.encodeAsBase64)
+                {
+                    rtn = rtn.ToBase64String();
+                }
 
                 return rtn;
             }
@@ -149,26 +172,21 @@ namespace Furysoft.Serializers.Logic
         /// <inheritdoc />
         public string SerializeToString(object content, Type type)
         {
-            string rtn = null;
-
             using (var ms = new MemoryStream())
             {
                 Serializer.Serialize(ms, content);
+                ms.Flush();
                 ms.Position = 0;
 
-                var tryGetBuffer = ms.TryGetBuffer(out var buff);
+                var array = ms.ToArray();
+                var rtn = Encoding.GetEncoding("iso-8859-1").GetString(array);
 
-                if (tryGetBuffer)
+                if (this.encodeAsBase64)
                 {
-                    var bufferArray = buff.Array;
-
-                    var s = tryGetBuffer
-                            ? Convert.ToBase64String(bufferArray, 0, (int)ms.Length)
-                            : string.Empty;
-                    rtn = s;
+                    rtn = rtn.ToBase64String();
                 }
 
-                return rtn ?? string.Empty;
+                return rtn;
             }
         }
     }
