@@ -8,7 +8,6 @@ namespace Furysoft.Serializers.Logic
 {
     using System;
     using System.IO;
-    using System.Text;
     using ProtoBuf;
 
     /// <summary>
@@ -71,7 +70,7 @@ namespace Furysoft.Serializers.Logic
         /// <inheritdoc />
         public TType DeserializeFromString<TType>(string data)
         {
-            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToBytes() : Encoding.UTF8.GetBytes(data);
+            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToBytes() : data.ConvertToBinary();
 
             using (var ms = new MemoryStream(serializedData))
             {
@@ -82,7 +81,7 @@ namespace Furysoft.Serializers.Logic
         /// <inheritdoc />
         public object DeserializeFromString(string data, Type type)
         {
-            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToBytes() : Encoding.UTF8.GetBytes(data);
+            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToBytes() : data.ConvertToBinary();
 
             using (var ms = new MemoryStream(serializedData))
             {
@@ -96,9 +95,7 @@ namespace Furysoft.Serializers.Logic
             using (var ms = new MemoryStream())
             {
                 Serializer.Serialize(ms, content);
-
                 ms.Flush();
-
                 return ms.ToArray();
             }
         }
@@ -156,7 +153,7 @@ namespace Furysoft.Serializers.Logic
                 return array.ToBase64String();
             }
 
-            return Encoding.UTF8.GetString(array);
+            return array.ConvertToString();
         }
 
         /// <inheritdoc />
@@ -175,7 +172,7 @@ namespace Furysoft.Serializers.Logic
                 return array.ToBase64String();
             }
 
-            return Encoding.UTF8.GetString(array);
+            return array.ConvertToString();
         }
     }
 }

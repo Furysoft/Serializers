@@ -8,6 +8,8 @@ namespace Furysoft.Serializers.Tests.Serializers
 {
     using System;
     using System.Diagnostics;
+    using System.Linq;
+    using System.Text;
     using Furysoft.Serializers.Logic;
     using Furysoft.Serializers.Tests.Helpers;
     using Furysoft.Serializers.Tests.TestEntities;
@@ -144,10 +146,14 @@ namespace Furysoft.Serializers.Tests.Serializers
                 Value2 = 2.53m,
             };
 
+            var serialized = testEntity.SerializeToByteArray().ToBase64String();
+            var des = serialized.DecodeBase64ToString().Deserialize<TestEntity2>();
+
+            return;
+
             // Act
             var stopwatch = Stopwatch.StartNew();
-            var serializeToString = protocolBufferSerializer.SerializeToString(testEntity, typeof(TestEntity2));
-
+            var serializeToString = protocolBufferSerializer.SerializeToString<TestEntity2>(testEntity);
             var deserializeFromByteArray = protocolBufferSerializer.DeserializeFromString(serializeToString, typeof(TestEntity2)) as TestEntity2;
 
             stopwatch.Stop();

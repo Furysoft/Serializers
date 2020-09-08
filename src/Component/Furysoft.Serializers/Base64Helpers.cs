@@ -8,6 +8,7 @@ namespace Furysoft.Serializers
 {
     using System;
     using System.IO;
+    using Furysoft.Serializers.Logic;
     using JetBrains.Annotations;
 
     /// <summary>
@@ -47,7 +48,7 @@ namespace Furysoft.Serializers
         public static string DecodeBase64ToString([NotNull] this string source)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(source);
-            var s = System.Text.Encoding.UTF8.GetString(base64EncodedBytes, 0, base64EncodedBytes.Length);
+            var s = base64EncodedBytes.ConvertToString();
             return s;
         }
 
@@ -58,7 +59,7 @@ namespace Furysoft.Serializers
         /// <returns>The base 64 encoded string.</returns>
         public static string ToBase64String([NotNull] this string source)
         {
-            var bytes = System.Text.Encoding.UTF8.GetBytes(source);
+            var bytes = source.ConvertToBinary();
             return System.Convert.ToBase64String(bytes);
         }
 
