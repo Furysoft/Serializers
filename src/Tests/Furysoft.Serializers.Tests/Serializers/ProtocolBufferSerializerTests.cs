@@ -13,6 +13,7 @@ namespace Furysoft.Serializers.Tests.Serializers
     using Furysoft.Serializers.Tests.TestEntities;
     using Newtonsoft.Json;
     using NUnit.Framework;
+    using ProtoBuf;
 
     /// <summary>
     /// The Protocol Buffer Serializer Tests.
@@ -147,7 +148,7 @@ namespace Furysoft.Serializers.Tests.Serializers
             var stopwatch = Stopwatch.StartNew();
             var serializeToString = protocolBufferSerializer.SerializeToString(testEntity, typeof(TestEntity2));
 
-            var deserializeFromByteArray = protocolBufferSerializer.DeserializeFromString<TestEntity2>(serializeToString);
+            var deserializeFromByteArray = protocolBufferSerializer.DeserializeFromString(serializeToString, typeof(TestEntity2)) as TestEntity2;
 
             stopwatch.Stop();
 

@@ -71,14 +71,10 @@ namespace Furysoft.Serializers.Logic
         /// <inheritdoc />
         public TType DeserializeFromString<TType>(string data)
         {
-            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToString() : data;
+            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToBytes() : Encoding.UTF8.GetBytes(data);
 
-            using (var ms = new MemoryStream())
-            using (var sw = new StreamWriter(ms, Encoding.GetEncoding("iso-8859-1")))
+            using (var ms = new MemoryStream(serializedData))
             {
-                sw.Write(serializedData);
-                sw.Flush();
-                ms.Position = 0;
                 return Serializer.Deserialize<TType>(ms);
             }
         }
@@ -86,14 +82,10 @@ namespace Furysoft.Serializers.Logic
         /// <inheritdoc />
         public object DeserializeFromString(string data, Type type)
         {
-            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToString() : data;
+            var serializedData = this.encodeAsBase64 ? data.DecodeBase64ToBytes() : Encoding.UTF8.GetBytes(data);
 
-            using (var ms = new MemoryStream())
-            using (var sw = new StreamWriter(ms, Encoding.GetEncoding("iso-8859-1")))
+            using (var ms = new MemoryStream(serializedData))
             {
-                sw.Write(serializedData);
-                sw.Flush();
-                ms.Position = 0;
                 return Serializer.Deserialize(type, ms);
             }
         }
@@ -151,43 +143,39 @@ namespace Furysoft.Serializers.Logic
         /// <inheritdoc />
         public string SerializeToString<TType>(TType content)
         {
+            byte[] array;
             using (var ms = new MemoryStream())
             {
                 Serializer.Serialize(ms, content);
-                ms.Flush();
-                ms.Position = 0;
 
-                var array = ms.ToArray();
-                var rtn = Encoding.GetEncoding("iso-8859-1").GetString(array);
-
-                if (this.encodeAsBase64)
-                {
-                    rtn = rtn.ToBase64String();
-                }
-
-                return rtn;
+                array = ms.ToArray();
             }
+
+            if (this.encodeAsBase64)
+            {
+                return array.ToBase64String();
+            }
+
+            return Encoding.UTF8.GetString(array);
         }
 
         /// <inheritdoc />
         public string SerializeToString(object content, Type type)
         {
+            byte[] array;
             using (var ms = new MemoryStream())
             {
                 Serializer.Serialize(ms, content);
-                ms.Flush();
-                ms.Position = 0;
 
-                var array = ms.ToArray();
-                var rtn = Encoding.GetEncoding("iso-8859-1").GetString(array);
-
-                if (this.encodeAsBase64)
-                {
-                    rtn = rtn.ToBase64String();
-                }
-
-                return rtn;
+                array = ms.ToArray();
             }
+
+            if (this.encodeAsBase64)
+            {
+                return array.ToBase64String();
+            }
+
+            return Encoding.UTF8.GetString(array);
         }
     }
 }
